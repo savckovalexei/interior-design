@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Так как шрифт Druk Cyr - платный, было принято решение заменить его на аналог, в данном случае Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/src/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+    <div class="wrapper">
+       <header class="header">
+          
+       </header>
+      <main class="content">
+        <div class="page-content">
+            <h2 class="section-title">Дизайн однокомнатной брежневки в скандинавском стиле</h2>
+            <div class="content-block m-t-30">
+                <h3 class="block-title">О проекте:</h3>
+                <p class="text m-t-30"><span class="opacity-4">Адрес:</span> Сумский проезд</p>
+                <p class="text"><span class="opacity-4">Площадь:</span> 39 м<sup>2</sup></p>
+                <p class="text"><span class="opacity-4">Стиль:</span> Современный скандинавский</p>
+            </div>
+            <div class="content-block m-t-30">
+                <h3 class="block-title">Задача</h3>
+                <p class="text m-t-30">
+                    В этом проекте мы разработали дизайн однокомнатной квартиры площадью 39 м², расположенной на Сумском проезде. Квартира относится к типовым домам эпохи «брежневок» — с компактной планировкой, узким коридором, небольшой кухней и ограниченным количеством естественного света. Основная задача заключалась в том, чтобы превратить устаревшее пространство в современное, функциональное и визуально лёгкое жилище, сохранив при этом уют и индивидуальность.
+                </p>
+            </div>
+            <h2 class="section-title">Мы выбрали современный скандинавский стиль как основу концепции</h2>
+            <div class="content-block m-t-30">
+                <p class="text m-t-30">Этот стиль идеально подходит для небольших помещений: он делает интерьер светлым, воздушным и визуально расширяет пространство. Главная идея — максимум пользы в каждом квадратном метре при минимуме визуального шума. В проекте использовались натуральные материалы, мягкие светлые оттенки и простые геометрические формы, что позволило создать гармоничное и сбалансированное пространство. Планировочное решение стало ключевым этапом работы. Мы проанализировали привычки будущего жильца и предложили несколько вариантов зонирования. В итоге остановились на решении с объединением кухни и гостиной. Это позволило сделать помещение более просторным, добавить света и улучшить эргономику. Спальная зона была отделена лёгкой перегородкой, которая визуально не утяжеляет интерьер, но обеспечивает ощущение уединённости. В коридоре разместили встроенные системы хранения, чтобы освободить основное пространство от лишней мебели.</p>
+                <p class="text m-t-30">Цветовая палитра построена на сочетании белого, светло-серого и теплых древесных оттенков. В качестве акцентов использованы элементы в графитовом и бежевом тонах. Такое решение создаёт уют, не перегружая интерьер. Стены окрашены матовой краской с лёгкой текстурой, а в зоне кухни использована плитка с имитацией натурального камня. Полы выполнены из износостойкого ламината под дуб, объединяющего все помещения в единое целое. Освещение играет важную роль в формировании атмосферы. В проекте предусмотрено несколько сценариев: основное равномерное освещение, локальное (подсветка рабочей зоны на кухне и над столом), а также декоративное — бра и торшеры создают мягкий вечерний свет. Благодаря продуманной схеме электрики, все розетки и выключатели размещены максимально удобно, а свет можно регулировать в зависимости от времени суток и настроения.</p>
+                <p class="text m-t-30">Мебель и декор подобраны в соответствии с принципами скандинавского дизайна — лаконичность, функциональность и природные материалы.</p>
+            </div>
+            <div class="columns">
+                <div class="col col-60">
+                    <div class="image-box" style="background-image: url('/src/img/posts/pst1.png')"></div>
+                </div>
+                <div class="col col-40">
+                    <div class="image-box" style="background-image: url('/src/img/posts/pst2.png')"></div>
+                </div>
+            </div>
+            <div class="columns m-t-10">
+                <div class="col col-40">
+                    <div class="image-box" style="background-image: url('/src/img/posts/pst3.png')"></div>
+                </div>
+                <div class="col col-60">
+                    <div class="image-box" style="background-image: url('/src/img/posts/pst4.png')"></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-section">
+        <div class="carousel-header">
+          <h2 class="section-title">другие статьи</h2>
+          <div class="carousel-buttons">
+            <button class="carousel-btn" @click="scrollPrev" :disabled="atStart">❮</button>
+            <button class="carousel-btn" @click="scrollNext" :disabled="atEnd">❯</button>
+          </div>
+        </div>
+        <div class="carousel-container" ref="container">
+          <div class="carousel-track">
+            <div v-for="(article, index) in articles" :key="index" class="carousel-card">
+              <div class="card-bg" :style="{ backgroundImage: 'url(' + article.image + ')' }">
+                <div class="card-content">
+                  <div class="card-date">{{ article.date }}</div>
+                  <h3 class="card-title">{{ article.title }}</h3>
+                  <p class="card-description">{{ article.description }}</p>
+                  <button class="card-btn">Читать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </main>
+      
+      <footer class="footer">
+
+      </footer>
+    </div>
+
+    </div>
+    <script>
+  const { createApp, ref } = Vue;
+
+  createApp({
+    setup() {
+      // Данные статей
+      const articles = ref([
+        {
+          image: '/src/img/carousel/crl1.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        },
+        {
+          image: '/src/img/carousel/crl2.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        },
+        {
+          image: '/src/img/carousel/crl3.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        },
+        {
+          image: '/src/img/carousel/crl4.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        },
+        {
+          image: '/src/img/carousel/crl4.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        },
+        {
+          image: '/src/img/carousel/crl3.png',
+          date: '24 октября, 2025',
+          title: 'Стиль джапанди в интерьере квартиры',
+          description: 'Стиль джапанди — это своеобразный гибрид японского минимализма и скандинавского функционализма. Слияние стилей отражено в самом названии, образованном из слов Japan (Япония) и Scandi (от Scandinavian – скандинавский).'
+        }
+      ]);
+
+      const container = ref(null);
+      const atStart = ref(true);
+      const atEnd = ref(false);
+
+      const getScrollAmount = () => {
+        const card = document.querySelector('.carousel-card');
+        if (card) {
+          return card.offsetWidth + 24;
+        }
+        return 460;
+      };
+
+      const updateButtonsState = () => {
+        if (!container.value) return;
+        atStart.value = container.value.scrollLeft <= 10;
+        atEnd.value = container.value.scrollLeft + container.value.clientWidth >= container.value.scrollWidth - 10;
+      };
+
+      const scrollPrev = () => {
+        if (!container.value) return;
+        container.value.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      };
+
+      const scrollNext = () => {
+        if (!container.value) return;
+        container.value.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      };
+
+      return { articles, container, atStart, atEnd, scrollPrev, scrollNext, updateButtonsState };
+    },
+    mounted() {
+      this.$nextTick(() => {
+        if (this.container) {
+          this.container.addEventListener('scroll', this.updateButtonsState);
+          this.updateButtonsState();
+        }
+      });
+    },
+    beforeUnmount() {
+      if (this.container) {
+        this.container.removeEventListener('scroll', this.updateButtonsState);
+      }
+    }
+  }).mount('#app');
+</script>
+</body>
+</html>
